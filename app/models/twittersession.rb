@@ -15,7 +15,7 @@ class TwitterSession
                                         CONSUMER_SECRET,
                                         :site  => "https://twitter.com")
   def initialize
-    self.get_token
+    @access_token = self.get_token
   end
 
   def get_token
@@ -44,6 +44,14 @@ class TwitterSession
     request_token.get_access_token(
       :oauth_verifier => oauth_verifier
       )
+  end
+
+  def self.get(path, headers = {})
+    @access_token.get(path, headers)
+  end
+
+  def self.post(path, body = '', headers = {})
+    @access_token.post(path, body, headers)
   end
 
 end

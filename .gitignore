@@ -1,4 +1,5 @@
 *.gem
+user_token.yml
 *.rbc
 .bundle
 .config
